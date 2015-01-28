@@ -1,4 +1,5 @@
 Exercise 1
+==========
 <http://c.learncodethehardway.org/book/ex1.html>
 
 make {name of .c file} is a shorthand for gcc {name}.c -o {name}
