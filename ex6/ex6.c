@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     float power = 2.345; // f at end of float for single float variable
     double super_power = 56789.4532;
     char initial = 'A';
-    char first_name[] = "Zed";
+    char first_name[] = "";
     char last_name[] = "Shaw";
 
     printf("You are %d miles away.\n", distance);
