@@ -13,4 +13,9 @@ buflen, you can force termination using something like the following:
     if (buflen > 0)
         buf[buflen - 1]= '\0';
 
+EC
+==
+
+Memory leak with unfixed program.
+    valgrind ./ex17 db.dat g 200
 
