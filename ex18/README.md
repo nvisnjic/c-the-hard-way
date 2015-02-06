@@ -26,6 +26,10 @@ To pass function pointers on as parameters of other functions use typedef.
     { (...)
 
 
+Typedef for function that returns a pointer type:
+
+    typedef int* (*sort_type)(int *numbers, int count, compare_cb cmp);
+
 VIM hex view 
 
 filter to hex -> :%!xdd
