@@ -39,3 +39,6 @@ reverse filter to binary -> :%!xxd -r
 
 
 hte hex editor or dhex are good..
+
+C pre-processor example:.
+    cpp ex18.c | less
