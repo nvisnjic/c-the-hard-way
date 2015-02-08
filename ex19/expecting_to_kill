@@ -1,0 +1,64 @@
+#!/usr/bin/expect -f
+
+spawn ./ex19
+
+# How long should the script wait between expect continues
+set time [lindex $argv 1] 
+if { $time == "" } { set timeout 2} else { set timeout $time}
+
+set count [lindex $argv 0]
+if { $count == "" } { set count 1000 }
+while {$count > 0 } {
+    # Gimme back my prompt
+    expect ">"
+
+    # Where can I go?
+    send "l\n"
+
+    # list for options to go next
+    set go {};
+    # what did the game say?
+    expect {
+        "NORTH" {
+            lappend go "n"
+            exp_continue -continue_timer
+        }   
+        "SOUTH" {
+            lappend go "s"
+            exp_continue -continue_timer
+        }   
+        "EAST" {
+            lappend go "e"
+            exp_continue -continue_timer
+        }   
+        "WEST" {
+            lappend go "w"
+            exp_continue -continue_timer
+        }
+        default { 
+        }
+    }
+    # randomize index direction from the ones avaialable
+    set index [expr {int(rand()*[llength $go])}]
+    # move in the randomized direction
+    send "[lindex $go $index]\n" 
+    
+    expect {
+        "minotaur" { # did we meet a minotaur in this room?
+            # if yes fight for your life
+            set dead 0
+            while {!$dead} {
+                expect ">"  # wait for prompt
+                send "a\n"
+                expect "dead" { set dead 1} # does the game say he's dead?
+            }
+            break
+        }
+    }
+    
+    expect ">"  {}  # wait for prompt 
+    # one less move 
+    set count [expr $count-1];
+}
+
+close 

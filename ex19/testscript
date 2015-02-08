@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#test 1 - The usual winner
+./ex19 << END
+l
+n
+e
+w
+w
+l
+a
+a
+a
+a
+a
+a
+q
+END
+
+
