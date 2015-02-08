@@ -5,6 +5,9 @@ CFLAGS=-Wall -g
 
 all: ex20 ex20nodbg 
 
+
+ex20 ex20nodbg: dbg.h
+
 clean:
 	rm -f ex20 ex20nodbg
 
