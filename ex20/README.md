@@ -18,9 +18,8 @@ Makefile modification for different CFLAGS during compilation.
 
 
 Function names:
-https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html (for name)
-
-https://gcc.gnu.org/onlinedocs/gcc/Return-Address.html (for stack address)
+* https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html (for name)
+* https://gcc.gnu.org/onlinedocs/gcc/Return-Address.html (for stack address)
 
 More detailed:
 http://www.gnu.org/software/libc/manual/html_node/Backtraces.html
