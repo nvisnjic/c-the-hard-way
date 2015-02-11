@@ -4,6 +4,11 @@ Exercise 21
 
 Basics.
 
+http://en.wikipedia.org/wiki/Enumerated_type
+
+
+    ?:          // Ternary truth test, read X ? Y : Z as "if X then Y else Z".
+    goto        // Jumps to a spot in the code where you've placed a label:
 
 Bit Operators
 
@@ -15,9 +20,6 @@ These are more advanced and for shifting and modifying the raw bits in integers.
     ^           // bitwise xor (exclusive or).
     |           // bitwise or.
     ~           // compliment (flips all the bits).
-
-
-    ?:          // Ternary truth test, read X ? Y : Z as "if X then Y else Z".
 
 
 Assignment Operators
