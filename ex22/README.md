@@ -20,6 +20,10 @@ Only available within mentioned function.
 "Pass by value" vs "Pass by reference" example
 ======================================
 
+If the one that's being passed is changed, than it's pass by reference (eg.
+address of variable AKA pointer (reference))
+
+
     void Modify(int p, int * q, int * o)
     {
         p = 27; // passed by value - only the local parameter is modified
