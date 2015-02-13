@@ -6,17 +6,14 @@ Watch that scope!
 
 Overview of special var types:
 
-*extern*
-Means "the variable exists, but it's 
+*extern* - "the variable exists, but it's 
 in another 'external' location". Typically  one .c file is
 going to use a variable that's been defined in another .c file
 
-*static (file)*
-Means the variable will only be available and used in this .c file 
+*static (file)* - the variable will only be available and used in this .c file 
 (kinda opposite of extern).
 
-*static (function)*
-A persistant variable that can hold value between function calls.
+*static (function)* - a persistant variable that can hold value between function calls.
 Only available within mentioned function.
 
 
