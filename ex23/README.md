@@ -6,7 +6,8 @@ Exercise 23
 No output => good.
 
 Duff's device is nice.
-======================
+------------------------
+
 <http://en.wikipedia.org/wiki/Duff%27s_device>
 
 more on loop unrolling:
