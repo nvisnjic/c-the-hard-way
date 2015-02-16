@@ -3,6 +3,20 @@
 #include "dbg.h"
 
 
+#define UNROLL8(from, to, count) {                   \
+        int n = ((count) + 7) / 8;                     \
+        switch((count) % 8) {                          \
+            case 0: do { *(to)++ = *(from)++;           \
+                        case 7: *(to)++ = *(from)++;    \
+                        case 6: *(to)++ = *(from)++;    \
+                        case 5: *(to)++ = *(from)++;    \
+                        case 4: *(to)++ = *(from)++;    \
+                        case 3: *(to)++ = *(from)++;    \
+                        case 2: *(to)++ = *(from)++;    \
+                        case 1: *(to)++ = *(from)++;    \
+                    } while(--n > 0);                   \
+        }; }
+ 
 int normal_copy(char *from, char *to, int count)
 {
     int i = 0;
@@ -100,11 +114,24 @@ int main(int argc, char *argv[])
     // reset
     memset(to, 'y', 1000);
 
-    // my version
+    // zed's version
     rc = zeds_device(from, to, 1000);
     check(rc == 1000, "Zed's device failed: %d", rc);
     check(valid_copy(to, 1000, 'x'), "Zed's device failed copy.");
 
+    
+    // reset
+    memset(to, 'y', 1000);
+   
+    char *from_ptr = from;
+    char *to_ptr = to;
+    // macro version
+    UNROLL8(from_ptr, to_ptr, 1000);
+    
+    //printf("StringOut: %s\n\n %s\n", to, from);
+    //check(rc == 1000, "Zed's device failed: %d", rc);
+    check(valid_copy(to, 1000, 'x'), "Zed's device failed copy.");
+    
     return 0;
 error:
     return 1;
