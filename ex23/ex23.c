@@ -3,9 +3,10 @@
 #include "dbg.h"
 
 
-#define UNROLL8(from, to, count) {                   \
-        int n = ((count) + 7) / 8;                     \
-        switch((count) % 8) {                          \
+#define UNROLL8(from, to, count)                        \
+    do {    /* THIS IS NOT A LOOP! */                   \
+        int n = ((count) + 7) / 8;                      \
+        switch((count) % 8) {                           \
             case 0: do { *(to)++ = *(from)++;           \
                         case 7: *(to)++ = *(from)++;    \
                         case 6: *(to)++ = *(from)++;    \
@@ -15,7 +16,9 @@
                         case 2: *(to)++ = *(from)++;    \
                         case 1: *(to)++ = *(from)++;    \
                     } while(--n > 0);                   \
-        }; }
+        }; } while(0)   /*  Again, not a loop. */
+                        //  Here for those nasty 
+                        //  " if ... UNROLL8(...); else" combos
  
 int normal_copy(char *from, char *to, int count)
 {
