@@ -20,3 +20,6 @@ more on loop unrolling:
 Variable length Duff's device?
 
 => Probably not needed, but if you really want to put it in code, use he Boost metaprogramming and preprocessor libraries, you might even get this down to something reasonable.
+
+Also:
+* <http://stackoverflow.com/questions/28231743/self-unrolling-macro-loop-in-c-c>
